@@ -65,6 +65,10 @@ keyPress('space', () => {
   spawnBullet(player.pos.add(0, -25))
 })
 
+keyPress("r", () => {
+    scene()
+});
+
 action('bullet', (b) => {
   b.move(0, -BULLET_SPEED)
   if (b.pos.y < 0) {
@@ -116,6 +120,25 @@ const timer = add([
   },
 ])
 
+const controls = add([
+  text(' <- ->  Move'),
+  pos(50, height() - 30),
+  layer('ui'),
+  scale(1),
+  {
+    value: 0,
+  }
+])
+
+const controls1 = add([
+  text('[Space]  Shoot'),
+  pos(50, height() - 15),
+  layer('ui'),
+  scale(1),
+  {
+    value: 0,
+  }
+])
 
 timer.action(() => {
   timer.time -= dt()
